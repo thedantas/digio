@@ -9,13 +9,38 @@ import UIKit
 import Kingfisher
 
 class CashItemView: UIView {
-    private let imageView = UIImageView()
-    private let containerView = UIView() // Contêiner para o imageView que terá o cornerRadius
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
-    init(item: CashItem) {
+    private let containerView: UIView = {
+        let containerView = UIView()
+        containerView.layer.cornerRadius = 10
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowRadius = 5
+        containerView.backgroundColor = .clear
+        containerView.clipsToBounds = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+
+    private var item: DetailPresentable?
+    var delegate: ItemSelectable?
+
+    init(item: CashItem, delegate: ItemSelectable?) {
         super.init(frame: .zero)
+        self.item = item
+        self.delegate = delegate
         setupView()
         configure(with: item)
+        setupTapGestureRecognizer()
     }
 
     required init?(coder: NSCoder) {
@@ -23,39 +48,20 @@ class CashItemView: UIView {
     }
 
     private func setupView() {
-        // Adicionar e configurar containerView
-        containerView.layer.cornerRadius = 10
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 1)
-        containerView.layer.shadowOpacity = 0.5
-        containerView.layer.shadowRadius = 5
-        containerView.backgroundColor = .clear // para que a sombra seja visível
-        containerView.clipsToBounds = false // para que a sombra seja visível
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
-
-        // Restrições para containerView
+        containerView.addSubview(imageView)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.leftAnchor.constraint(equalTo: leftAnchor),
             containerView.rightAnchor.constraint(equalTo: rightAnchor),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-        // Adicionar e configurar o imageView
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true // Isso vai aplicar os cantos arredondados à imageView
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(imageView) // Adicionando imageView ao containerView para cantos arredondados
-
-        // Restrições para imageView
-        NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             imageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             imageView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
+
     }
 
     func configure(with item: CashItem) {
@@ -77,6 +83,18 @@ class CashItemView: UIView {
                 }
             }
         )
+    }
+
+    private func setupTapGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        addGestureRecognizer(tapGesture)
+        isUserInteractionEnabled = true
+    }
+
+    @objc private func handleTap() {
+        if let item = self.item {
+            delegate?.didSelectItem(item)
+        }
     }
 
 }

@@ -8,43 +8,89 @@
 import UIKit
 import Kingfisher
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
-    let scrollView = UIScrollView()
-    let contentView = UIView()
+    // MARK: - UI Components
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
 
-    let shadowView = UIView()
-    let imageView = UIImageView()
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
-    let titleLabel = UILabel()
-    let descriptionTextView = UITextView()
+    private let shadowView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 6
+        return view
+    }()
 
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.textColor = .black
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+
+    private let descriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.isScrollEnabled = false
+        textView.dataDetectorTypes = .link
+        textView.linkTextAttributes = [
+            .foregroundColor: UIColor.blue
+        ]
+        return textView
+    }()
+
+    // MARK: - Properties
     var detailItem: DetailPresentable?
 
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupScrollView()
-        setupShadowView()
-        setupImageView()
-        setupTitleLabel()
-        setupDescriptionLabel()
+        setupView()
         configureUI()
     }
 
-    func configure(with item: DetailPresentable) {
-        detailItem = item
-        imageView.kf.setImage(with: item.imageURL)
-        titleLabel.text = item.title
-        descriptionTextView.text = item.description
-    }
-
-    private func setupScrollView() {
+    // MARK: - Setup
+    private func setupView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        contentView.addSubview(shadowView)
+        shadowView.addSubview(imageView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(descriptionTextView)
+        makeContraints()
+    }
 
+    private func makeContraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -56,72 +102,25 @@ class DetailViewController: UIViewController {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-        ])
-    }
 
-    private func setupShadowView() {
-        shadowView.translatesAutoresizingMaskIntoConstraints = false
-        shadowView.backgroundColor = .clear
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        shadowView.layer.shadowOpacity = 0.3
-        shadowView.layer.shadowRadius = 6
-        contentView.addSubview(shadowView)
-
-        NSLayoutConstraint.activate([
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            shadowView.heightAnchor.constraint(equalTo: shadowView.widthAnchor, multiplier: 0.56), 
-        ])
-    }
+            shadowView.heightAnchor.constraint(equalTo: shadowView.widthAnchor, multiplier: 0.56),
 
-    private func setupImageView() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 12
-        shadowView.addSubview(imageView)
-
-        NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: shadowView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor),
-        ])
-    }
 
-    private func setupTitleLabel() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
-        titleLabel.textColor = .black
-        titleLabel.textAlignment = .left
-        titleLabel.numberOfLines = 0
-        contentView.addSubview(titleLabel)
-
-        NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: shadowView.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-        ])
-    }
 
-    private func setupDescriptionLabel() {
-        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.isEditable = false
-        descriptionTextView.font = UIFont.systemFont(ofSize: 18)
-        descriptionTextView.isScrollEnabled = false
-        descriptionTextView.dataDetectorTypes = .link
-        descriptionTextView.linkTextAttributes = [
-            .foregroundColor: UIColor.blue
-        ]
-        contentView.addSubview(descriptionTextView)
-
-        NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             descriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             descriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            descriptionTextView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20),
+            descriptionTextView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 
@@ -129,5 +128,12 @@ class DetailViewController: UIViewController {
         if let item = detailItem {
             configure(with: item)
         }
+    }
+
+    func configure(with item: DetailPresentable) {
+        detailItem = item
+        imageView.kf.setImage(with: item.imageURL)
+        titleLabel.text = item.title
+        descriptionTextView.text = item.description
     }
 }
