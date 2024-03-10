@@ -12,3 +12,7 @@ protocol DetailPresentable {
     var imageURL: URL { get }
     var description: String { get }
 }
+
+extension CashItem: DetailPresentable {
+    var imageURL: URL { bannerURL }
+}

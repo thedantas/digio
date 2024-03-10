@@ -6,10 +6,26 @@
 //
 
 import UIKit
+import Kingfisher
 
-class DigioStoreViewController: UIViewController {
+class DigioStoreViewController: CustomViewController {
+
     private var spotlightStackView = UIStackView()
     private var cashStackView = UIStackView()
+    let cashLabel: CustomLabel = {
+        let label = CustomLabel()
+        label.setParts(first: (text: "store_title_cash".localization(), color: .primary),
+                       second: (text: "store_subtitle_cash".localization(), color: .gray))
+        return label
+    }()
+
+    let productLabel: UILabel = {
+        let label = UILabel()
+        label.text = "store_title_product".localization()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .primaryColor
+        return label
+    }()
     private var productsStackView = UIStackView()
 
     var viewModel: DigioStoreViewModel!
@@ -33,12 +49,18 @@ class DigioStoreViewController: UIViewController {
         spotlightScrollView.addSubview(spotlightStackView)
         productsScrollView.addSubview(productsStackView)
 
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(productLabel)
+
         cashStackView.axis = .horizontal
         cashStackView.distribution = .equalSpacing
         cashStackView.alignment = .center
         cashStackView.spacing = 16
         cashStackView.translatesAutoresizingMaskIntoConstraints = false
+        cashLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(cashLabel)
         view.addSubview(cashStackView)
+
 
         [spotlightStackView, productsStackView].forEach { stackView in
             stackView.axis = .horizontal
@@ -60,12 +82,20 @@ class DigioStoreViewController: UIViewController {
             spotlightStackView.bottomAnchor.constraint(equalTo: spotlightScrollView.bottomAnchor),
             spotlightStackView.heightAnchor.constraint(equalTo: spotlightScrollView.heightAnchor),
 
-            cashStackView.topAnchor.constraint(equalTo: spotlightScrollView.bottomAnchor, constant: 20),
+            cashLabel.topAnchor.constraint(equalTo: spotlightScrollView.bottomAnchor, constant: 32),
+            cashLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            cashLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            cashStackView.topAnchor.constraint(equalTo: cashLabel.bottomAnchor, constant: 16),
             cashStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             cashStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             cashStackView.heightAnchor.constraint(equalToConstant: 100),
 
-            productsScrollView.topAnchor.constraint(equalTo: cashStackView.bottomAnchor, constant: 20),
+            productLabel.topAnchor.constraint(equalTo: cashStackView.bottomAnchor, constant: 32),
+            productLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            productLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            productsScrollView.topAnchor.constraint(equalTo: productLabel.bottomAnchor, constant: 16),
             productsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             productsScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             productsScrollView.heightAnchor.constraint(equalToConstant: 150),
@@ -118,8 +148,6 @@ class DigioStoreViewController: UIViewController {
             let itemView = ProductView(item: item, delegate: self)
             itemView.translatesAutoresizingMaskIntoConstraints = false
 
-
-            // Set the width and height constraints to 80 points
             NSLayoutConstraint.activate([
                 itemView.widthAnchor.constraint(equalToConstant: 130),
                 itemView.heightAnchor.constraint(equalToConstant: 130),

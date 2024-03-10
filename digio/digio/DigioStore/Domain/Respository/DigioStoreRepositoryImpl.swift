@@ -11,14 +11,14 @@ class DigioStoreRepositoryImpl: DigioStoreRepository {
 
     // MARK: - Properties
     private let dataSource: DigioStoreDatasource
-    var friendsReferral: [DigioStoreResponse]
+    var friendsReferral: [DigioStoreEntity]
 
     init(dataSource: DigioStoreDatasource) {
         self.dataSource = dataSource
         self.friendsReferral = []
     }
 
-    func getStore(onComplete: @escaping (Result<DigioStoreResponse, ResponseError>) -> Void) {
+    func getStore(onComplete: @escaping (Result<DigioStoreEntity, ResponseError>) -> Void) {
         dataSource.getDigioStore { [weak self] result in
             switch result {
             case let .success(responses):

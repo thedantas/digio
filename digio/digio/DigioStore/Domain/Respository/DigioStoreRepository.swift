@@ -19,5 +19,5 @@ protocol DigioStoreRepository {
             - onComplete: A completion handler that returns a result containing `DigioStoreResponse` on success or a `ResponseError` on failure.
               The `DigioStoreResponse` includes arrays of `SpotlightItem` and `ProductItem`, and a single `CashItem`.
     */
-    func getStore(onComplete: @escaping (Result<DigioStoreResponse, ResponseError>) -> Void)
+    func getStore(onComplete: @escaping (Result<DigioStoreEntity, ResponseError>) -> Void)
 }

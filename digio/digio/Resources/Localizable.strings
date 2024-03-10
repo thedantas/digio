@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  digio
+
+  Created by André  Costa Dantas on 10/03/24.
+  
+*/
+
+//CustomViewController
+"name_title" = "Olá, Maria";
+
+//DigioStoreViewController
+"store_title_product" = "Produtos";
+"store_title_cash" = "digio ";
+"store_subtitle_cash" = "Cash ";
+

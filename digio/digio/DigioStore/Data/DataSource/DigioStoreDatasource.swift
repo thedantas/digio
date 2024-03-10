@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DigioStoreDatasource {
-    func getDigioStore(onComplete: @escaping (Result<DigioStoreResponse, ResponseError>) -> Void)
+    func getDigioStore(onComplete: @escaping (Result<DigioStoreEntity, ResponseError>) -> Void)
 
 }
 
 class DigioStoreDatasourceImpl: DigioStoreDatasource {
-    func getDigioStore(onComplete: @escaping (Result<DigioStoreResponse, ResponseError>) -> Void) {
+    func getDigioStore(onComplete: @escaping (Result<DigioStoreEntity, ResponseError>) -> Void) {
         let api = DigioStoreApi.getProducts()
-        ApiManager().request(api: api, type: DigioStoreResponse.self) { result in
+        ApiManager().request(api: api, type: DigioStoreEntity.self) { result in
             switch result {
             case .success(let response):
                 onComplete(.success(response))

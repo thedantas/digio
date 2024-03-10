@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UINavigationController(rootViewController: DigioStoreViewController())
         window.makeKeyAndVisible()
+        window.backgroundColor = .primaryColor
         self.window = window
         return true
     }

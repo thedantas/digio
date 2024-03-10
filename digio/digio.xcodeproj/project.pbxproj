@@ -37,6 +37,14 @@
 		50AF4D8E2B9E138B00572D82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D8D2B9E138B00572D82 /* DetailViewController.swift */; };
 		50AF4D912B9E2C1500572D82 /* DetailPresentable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D902B9E2C1500572D82 /* DetailPresentable+Protocol.swift */; };
 		50AF4D932B9E2C7E00572D82 /* ItemSelectable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D922B9E2C7E00572D82 /* ItemSelectable+Protocol.swift */; };
+		50AF4D9A2B9E318E00572D82 /* SpotlightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D992B9E318E00572D82 /* SpotlightItem.swift */; };
+		50AF4D9C2B9E31BA00572D82 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D9B2B9E31BA00572D82 /* ProductItem.swift */; };
+		50AF4D9E2B9E328200572D82 /* CashItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D9D2B9E328200572D82 /* CashItem.swift */; };
+		50AF4DA02B9E342D00572D82 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AF4D9F2B9E342D00572D82 /* Colors.xcassets */; };
+		50AF4DA22B9E34E300572D82 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4DA12B9E34E300572D82 /* UIColor+Extension.swift */; };
+		50AF4DA52B9E372B00572D82 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4DA42B9E372B00572D82 /* CustomLabel.swift */; };
+		50AF4DA72B9E3EE600572D82 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4DA62B9E3EE600572D82 /* CustomViewController.swift */; };
+		50AF4DA92B9E475C00572D82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AF4DA82B9E475C00572D82 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +95,14 @@
 		50AF4D8D2B9E138B00572D82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		50AF4D902B9E2C1500572D82 /* DetailPresentable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailPresentable+Protocol.swift"; sourceTree = "<group>"; };
 		50AF4D922B9E2C7E00572D82 /* ItemSelectable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemSelectable+Protocol.swift"; sourceTree = "<group>"; };
+		50AF4D992B9E318E00572D82 /* SpotlightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightItem.swift; sourceTree = "<group>"; };
+		50AF4D9B2B9E31BA00572D82 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
+		50AF4D9D2B9E328200572D82 /* CashItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashItem.swift; sourceTree = "<group>"; };
+		50AF4D9F2B9E342D00572D82 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		50AF4DA12B9E34E300572D82 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		50AF4DA42B9E372B00572D82 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		50AF4DA62B9E3EE600572D82 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		50AF4DA82B9E475C00572D82 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +157,6 @@
 		50AF4D202B9CA94800572D82 /* digio */ = {
 			isa = PBXGroup;
 			children = (
-				50AF4D8C2B9E137500572D82 /* Detail */,
 				50AF4D722B9CB45100572D82 /* Helper */,
 				50AF4D712B9CB44000572D82 /* Resources */,
 				50AF4D5B2B9CB00B00572D82 /* DigioStore */,
@@ -248,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				50AF4D2A2B9CA94A00572D82 /* Assets.xcassets */,
+				50AF4D9F2B9E342D00572D82 /* Colors.xcassets */,
+				50AF4DA82B9E475C00572D82 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -255,7 +272,9 @@
 		50AF4D722B9CB45100572D82 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				50AF4DA32B9E371A00572D82 /* Components */,
 				50AF4D732B9CB46000572D82 /* String+Extension.swift */,
+				50AF4DA12B9E34E300572D82 /* UIColor+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -272,21 +291,12 @@
 		50AF4D802B9CBAC700572D82 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				50AF4D252B9CA94800572D82 /* DigioStoreViewController.swift */,
+				50AF4D982B9E317200572D82 /* Models */,
+				50AF4D972B9E315B00572D82 /* Views */,
+				50AF4D962B9E314700572D82 /* ViewControllers */,
 				50AF4D812B9CBAEE00572D82 /* DigioStoreViewModel.swift */,
-				50AF4D832B9CC45A00572D82 /* SpotlightView.swift */,
-				50AF4D872B9CC4A300572D82 /* ProductView.swift */,
-				50AF4D852B9CC46B00572D82 /* CashView.swift */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		50AF4D8C2B9E137500572D82 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				50AF4D8D2B9E138B00572D82 /* DetailViewController.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		50AF4D8F2B9E2BFB00572D82 /* Protocols */ = {
@@ -296,6 +306,44 @@
 				50AF4D922B9E2C7E00572D82 /* ItemSelectable+Protocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		50AF4D962B9E314700572D82 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50AF4D8D2B9E138B00572D82 /* DetailViewController.swift */,
+				50AF4D252B9CA94800572D82 /* DigioStoreViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		50AF4D972B9E315B00572D82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50AF4D832B9CC45A00572D82 /* SpotlightView.swift */,
+				50AF4D872B9CC4A300572D82 /* ProductView.swift */,
+				50AF4D852B9CC46B00572D82 /* CashView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50AF4D982B9E317200572D82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50AF4D992B9E318E00572D82 /* SpotlightItem.swift */,
+				50AF4D9B2B9E31BA00572D82 /* ProductItem.swift */,
+				50AF4D9D2B9E328200572D82 /* CashItem.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		50AF4DA32B9E371A00572D82 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50AF4DA42B9E372B00572D82 /* CustomLabel.swift */,
+				50AF4DA62B9E3EE600572D82 /* CustomViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +461,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50AF4DA02B9E342D00572D82 /* Colors.xcassets in Resources */,
+				50AF4DA92B9E475C00572D82 /* Localizable.strings in Resources */,
 				50AF4D2E2B9CA94A00572D82 /* LaunchScreen.storyboard in Resources */,
 				50AF4D2B2B9CA94A00572D82 /* Assets.xcassets in Resources */,
 			);
@@ -439,15 +489,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50AF4DA72B9E3EE600572D82 /* CustomViewController.swift in Sources */,
 				50AF4D262B9CA94800572D82 /* DigioStoreViewController.swift in Sources */,
 				50AF4D792B9CB57A00572D82 /* DigioStoreRepositoryImpl.swift in Sources */,
+				50AF4D9C2B9E31BA00572D82 /* ProductItem.swift in Sources */,
 				50AF4D222B9CA94800572D82 /* AppDelegate.swift in Sources */,
 				50AF4D682B9CB27000572D82 /* DigioStoreDatasource.swift in Sources */,
 				50AF4D912B9E2C1500572D82 /* DetailPresentable+Protocol.swift in Sources */,
 				50AF4D772B9CB53500572D82 /* DigioStoreRepository.swift in Sources */,
 				50AF4D7F2B9CB65300572D82 /* DIExtension.swift in Sources */,
 				50AF4D702B9CB3EB00572D82 /* ApiManager.swift in Sources */,
+				50AF4DA52B9E372B00572D82 /* CustomLabel.swift in Sources */,
+				50AF4DA22B9E34E300572D82 /* UIColor+Extension.swift in Sources */,
 				50AF4D842B9CC45A00572D82 /* SpotlightView.swift in Sources */,
+				50AF4D9A2B9E318E00572D82 /* SpotlightItem.swift in Sources */,
 				50AF4D862B9CC46B00572D82 /* CashView.swift in Sources */,
 				50AF4D882B9CC4A300572D82 /* ProductView.swift in Sources */,
 				50AF4D8E2B9E138B00572D82 /* DetailViewController.swift in Sources */,
@@ -460,6 +515,7 @@
 				50AF4D5E2B9CB05C00572D82 /* StoreAssembler.swift in Sources */,
 				50AF4D582B9CAF9400572D82 /* DIAssembler.swift in Sources */,
 				50AF4D6C2B9CB32E00572D82 /* DigioStoreEntity.swift in Sources */,
+				50AF4D9E2B9E328200572D82 /* CashItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
