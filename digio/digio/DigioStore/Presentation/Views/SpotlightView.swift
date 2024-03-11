@@ -73,9 +73,9 @@ class SpotlightView: UIView {
             ],
             completionHandler: { [weak self] result in
                 switch result {
-                case .success(_):
+                case .success:
                     break
-                case .failure(_):
+                case .failure:
                     self?.imageView.image = placeholderImage
                 }
             }

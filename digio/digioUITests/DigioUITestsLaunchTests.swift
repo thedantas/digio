@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class digioUITestsLaunchTests: XCTestCase {
+final class DigioUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

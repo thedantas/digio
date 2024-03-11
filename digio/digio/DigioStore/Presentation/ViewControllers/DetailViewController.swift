@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 final class DetailViewController: UIViewController {
-
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -67,7 +66,7 @@ final class DetailViewController: UIViewController {
     }()
 
     // MARK: - Properties
-    var detailItem: DetailPresentable?
+    private var detailItem: DetailPresentable?
 
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -130,7 +129,7 @@ final class DetailViewController: UIViewController {
         }
     }
 
-    func configure(with item: DetailPresentable) {
+    public func configure(with item: DetailPresentable) {
         detailItem = item
         imageView.kf.setImage(with: item.imageURL)
         titleLabel.text = item.title

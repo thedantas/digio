@@ -14,7 +14,12 @@ class DigioStoreRepositoryMock: DigioStoreRepository {
     var testProductItems: [ProductItem]
     var testCashItem: CashItem
 
-    init(shouldReturnError: Bool, testSpotlightItems: [SpotlightItem], testProductItems: [ProductItem], testCashItem: CashItem) {
+    init(
+        shouldReturnError: Bool,
+        testSpotlightItems: [SpotlightItem],
+        testProductItems: [ProductItem],
+        testCashItem: CashItem
+    ) {
         self.shouldReturnError = shouldReturnError
         self.testSpotlightItems = testSpotlightItems
         self.testProductItems = testProductItems
@@ -25,9 +30,12 @@ class DigioStoreRepositoryMock: DigioStoreRepository {
         if shouldReturnError {
             onComplete(.failure(ResponseError(description: "Network error", statusCode: 500)))
         } else {
-            let response = DigioStoreEntity(spotlight: testSpotlightItems, products: testProductItems, cash: testCashItem)
+            let response = DigioStoreEntity(
+                spotlight: testSpotlightItems,
+                products: testProductItems,
+                cash: testCashItem
+            )
             onComplete(.success(response))
         }
     }
 }
-

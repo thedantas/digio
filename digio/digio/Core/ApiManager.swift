@@ -21,7 +21,7 @@ struct ApiManager {
                     if httpResponse.statusCode == 200 {
                         onComplete(.success(model))
                     } else {
-                        onComplete(.failure(ResponseError(description: "Error status code: \(httpResponse.statusCode)")))
+                        onComplete(.failure(ResponseError(description: "Error status code:\(httpResponse.statusCode)")))
                     }
                 } catch {
                     onComplete(.failure(ResponseError(description: error.localizedDescription)))

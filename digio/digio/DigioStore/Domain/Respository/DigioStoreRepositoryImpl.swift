@@ -11,25 +11,21 @@ class DigioStoreRepositoryImpl: DigioStoreRepository {
 
     // MARK: - Properties
     private let dataSource: DigioStoreDatasource
-    var friendsReferral: [DigioStoreEntity]
+    var digioStore: [DigioStoreEntity]
 
     init(dataSource: DigioStoreDatasource) {
         self.dataSource = dataSource
-        self.friendsReferral = []
+        self.digioStore = []
     }
 
     func getStore(onComplete: @escaping (Result<DigioStoreEntity, ResponseError>) -> Void) {
         dataSource.getDigioStore { [weak self] result in
             switch result {
             case let .success(responses):
-                let friendReferrals = responses
-
-                onComplete(.success(friendReferrals))
+                onComplete(.success(responses))
             case .failure:
                 onComplete(.failure(ResponseError(description: "default_error_message".localization())))
             }
         }
     }
-
 }
-

@@ -11,9 +11,9 @@
 		50AF4D262B9CA94800572D82 /* DigioStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D252B9CA94800572D82 /* DigioStoreViewController.swift */; };
 		50AF4D2B2B9CA94A00572D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AF4D2A2B9CA94A00572D82 /* Assets.xcassets */; };
 		50AF4D2E2B9CA94A00572D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF4D2C2B9CA94A00572D82 /* LaunchScreen.storyboard */; };
-		50AF4D392B9CA94A00572D82 /* digioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D382B9CA94A00572D82 /* digioTests.swift */; };
-		50AF4D432B9CA94A00572D82 /* digioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D422B9CA94A00572D82 /* digioUITests.swift */; };
-		50AF4D452B9CA94A00572D82 /* digioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D442B9CA94A00572D82 /* digioUITestsLaunchTests.swift */; };
+		50AF4D392B9CA94A00572D82 /* DigioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D382B9CA94A00572D82 /* DigioTests.swift */; };
+		50AF4D432B9CA94A00572D82 /* DigioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D422B9CA94A00572D82 /* DigioUITests.swift */; };
+		50AF4D452B9CA94A00572D82 /* DigioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D442B9CA94A00572D82 /* DigioUITestsLaunchTests.swift */; };
 		50AF4D532B9CAD9A00572D82 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 50AF4D522B9CAD9A00572D82 /* Lottie */; };
 		50AF4D582B9CAF9400572D82 /* DIAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D572B9CAF9400572D82 /* DIAssembler.swift */; };
 		50AF4D5E2B9CB05C00572D82 /* StoreAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF4D5D2B9CB05C00572D82 /* StoreAssembler.swift */; };
@@ -73,10 +73,10 @@
 		50AF4D2D2B9CA94A00572D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50AF4D2F2B9CA94A00572D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50AF4D342B9CA94A00572D82 /* digioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AF4D382B9CA94A00572D82 /* digioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioTests.swift; sourceTree = "<group>"; };
+		50AF4D382B9CA94A00572D82 /* DigioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioTests.swift; sourceTree = "<group>"; };
 		50AF4D3E2B9CA94A00572D82 /* digioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AF4D422B9CA94A00572D82 /* digioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITests.swift; sourceTree = "<group>"; };
-		50AF4D442B9CA94A00572D82 /* digioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		50AF4D422B9CA94A00572D82 /* DigioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioUITests.swift; sourceTree = "<group>"; };
+		50AF4D442B9CA94A00572D82 /* DigioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		50AF4D572B9CAF9400572D82 /* DIAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIAssembler.swift; sourceTree = "<group>"; };
 		50AF4D5D2B9CB05C00572D82 /* StoreAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAssembler.swift; sourceTree = "<group>"; };
 		50AF4D632B9CB0BF00572D82 /* DigioStoreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigioStoreApi.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				50AF4DAA2B9E758900572D82 /* Mock */,
-				50AF4D382B9CA94A00572D82 /* digioTests.swift */,
+				50AF4D382B9CA94A00572D82 /* DigioTests.swift */,
 			);
 			path = digioTests;
 			sourceTree = "<group>";
@@ -182,8 +182,8 @@
 		50AF4D412B9CA94A00572D82 /* digioUITests */ = {
 			isa = PBXGroup;
 			children = (
-				50AF4D422B9CA94A00572D82 /* digioUITests.swift */,
-				50AF4D442B9CA94A00572D82 /* digioUITestsLaunchTests.swift */,
+				50AF4D422B9CA94A00572D82 /* DigioUITests.swift */,
+				50AF4D442B9CA94A00572D82 /* DigioUITestsLaunchTests.swift */,
 			);
 			path = digioUITests;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AF4DAC2B9E759C00572D82 /* DigioStoreRepositoryMock.swift in Sources */,
-				50AF4D392B9CA94A00572D82 /* digioTests.swift in Sources */,
+				50AF4D392B9CA94A00572D82 /* DigioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,8 +567,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AF4D432B9CA94A00572D82 /* digioUITests.swift in Sources */,
-				50AF4D452B9CA94A00572D82 /* digioUITestsLaunchTests.swift in Sources */,
+				50AF4D432B9CA94A00572D82 /* DigioUITests.swift in Sources */,
+				50AF4D452B9CA94A00572D82 /* DigioUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

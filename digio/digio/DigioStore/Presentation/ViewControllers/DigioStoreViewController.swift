@@ -172,7 +172,7 @@ final class DigioStoreViewController: CustomViewController {
             itemView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 itemView.widthAnchor.constraint(equalToConstant: 130),
-                itemView.heightAnchor.constraint(equalToConstant: 130),
+                itemView.heightAnchor.constraint(equalToConstant: 130)
             ])
             productsStackView.addArrangedSubview(itemView)
         }
