@@ -36,5 +36,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "286D2260-5513-4B43-9244-55DDFFE5EAED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "digio/DigioStore/DI/StoreAssembler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "assemble(container:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "286D2260-5513-4B43-9244-55DDFFE5EAED - 36d0d2b536796a29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "digio.StoreAssembler.assemble(container: Swinject.Container) -&gt; ()"
+                  moduleName = "digio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andredantas/Documents/GitHub/digio/digio/digio/DigioStore/DI/StoreAssembler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "286D2260-5513-4B43-9244-55DDFFE5EAED - b0fe7e66f0752e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swinject.Resolver) -&gt; digio.DigioStoreDatasource in digio.StoreAssembler.assemble(container: Swinject.Container) -&gt; ()"
+                  moduleName = "digio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andredantas/Documents/GitHub/digio/digio/digio/DigioStore/DI/StoreAssembler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55B75F8D-F375-4CF6-9940-D8C944062FAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "digio/DigioStore/DI/StoreAssembler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "assemble(container:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "55B75F8D-F375-4CF6-9940-D8C944062FAB - 36d0d2b536796b84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "digio.StoreAssembler.assemble(container: Swinject.Container) -&gt; ()"
+                  moduleName = "digio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andredantas/Documents/GitHub/digio/digio/digio/DigioStore/DI/StoreAssembler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "55B75F8D-F375-4CF6-9940-D8C944062FAB - b4975a341be6f35a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swinject.Resolver) -&gt; digio.DigioStoreRepository in digio.StoreAssembler.assemble(container: Swinject.Container) -&gt; ()"
+                  moduleName = "digio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andredantas/Documents/GitHub/digio/digio/digio/DigioStore/DI/StoreAssembler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBF936D2-6438-40B1-942A-8453DEA6F96A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "digio/Core/DI/DIExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "getService(_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

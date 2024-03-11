@@ -8,10 +8,14 @@
 import Foundation
 
 class DigioStoreViewModel {
-    let repository = getService(DigioStoreRepository.self)!
+    private let repository: DigioStoreRepository
     var spotlightItems: [SpotlightItem] = []
     var productItems: [ProductItem] = []
     var cashItem: CashItem?
+
+    init(repository: DigioStoreRepository? = nil) {
+        self.repository = repository ?? getService(DigioStoreRepository.self)!
+    }
 
     func fetchStoreData(completion: @escaping (Bool, ResponseError?) -> Void) {
         repository.getStore { [weak self] result in

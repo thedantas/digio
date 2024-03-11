@@ -10,27 +10,47 @@ import XCTest
 
 final class digioTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testFetchStoreDataSuccess() {
+        let spotlightMock = [SpotlightItem(name: "Spotlight Test", bannerURL: URL(string: "http://example.com/spotlight")!, description: "Description Test")]
+        let productMock = [ProductItem(name: "Product Test", imageURL: URL(string: "http://example.com/product")!, description: "Bla Bla")]
+        let cashMock = CashItem(title: "Cash Test", bannerURL: URL(string: "http://example.com/cash")!, description: "Cash Description Test")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let repositoryMock = DigioStoreRepositoryMock(shouldReturnError: false, testSpotlightItems: spotlightMock, testProductItems: productMock, testCashItem: cashMock)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+        let viewModel = DigioStoreViewModel(repository: repositoryMock)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let expectation = XCTestExpectation(description: "Fetch store data successfully updates the view model properties")
+
+        viewModel.fetchStoreData { isSuccess, error in
+            XCTAssertTrue(isSuccess)
+            XCTAssertNil(error)
+            XCTAssertEqual(viewModel.spotlightItems.count, spotlightMock.count)
+            XCTAssertEqual(viewModel.productItems.count, productMock.count)
+            XCTAssertNotNil(viewModel.cashItem)
+
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 1.0)
     }
 
+    func testFetchStoreDataFailure() {
+        // Preparação
+        let repositoryMock = DigioStoreRepositoryMock(shouldReturnError: true, testSpotlightItems: [], testProductItems: [], testCashItem: CashItem(title: "", bannerURL: URL(string: "http://example.com")!, description: ""))
+
+        let viewModel = DigioStoreViewModel(repository: repositoryMock)
+
+        let expectation = XCTestExpectation(description: "Fetch store data failure correctly handles the error")
+
+        viewModel.fetchStoreData { isSuccess, error in
+            XCTAssertFalse(isSuccess)
+            XCTAssertNotNil(error)
+            XCTAssertTrue(viewModel.spotlightItems.isEmpty)
+            XCTAssertTrue(viewModel.productItems.isEmpty)
+            XCTAssertNil(viewModel.cashItem)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1.0)
+    }
 }
