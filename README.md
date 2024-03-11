@@ -141,9 +141,10 @@ class DigioStoreViewController {
     // ...
 }
 ```
-![](Assets/store.png) 
+<img src="Assets/store.png" alt="Store" width="200"/> 
 
-![](Assets/detail.png) 
+<img src="Assets/detail.png" alt="Detail" width="200"/> 
+
 
 
 ## Testes
